@@ -7,13 +7,18 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const backgroundImageLink =
   'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2021/01/Meal-Prep-Recipes-1-1.jpg';
 const topLogoImageLink =
   'https://cdn-icons.flaticon.com/png/512/771/premium/771480.png?token=exp=1644493869~hmac=4726f946623a9560ddbdda2fde1cb64c';
 
-const IntroAuthScreen = () => {
+interface Props {
+  navigation: StackNavigationProp<any>;
+}
+
+const IntroAuthScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.mainView}>
       <ImageBackground
@@ -30,7 +35,11 @@ const IntroAuthScreen = () => {
           </View>
           <View style={styles.bottomView}>
             <View style={styles.buttonsView}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Log in');
+                }}
+              >
                 <View style={styles.loginButtonView}>
                   <Text style={styles.loginButtonText}>Log in</Text>
                 </View>
