@@ -1,6 +1,8 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { getDayOfWeekText } from '../helpers/DateHelpers';
 import HomeScreen from '../screens/home/HomeScreen';
 
 const HomeStackNavigator = createStackNavigator();
@@ -14,10 +16,17 @@ export const HomeNavigator = () => {
         options={{
             headerTintColor: 'white',
             headerBackTitleVisible: false,
-            headerStyle: {
-                backgroundColor: 'steelblue'
-            },
-            headerLeft: () => null
+            headerTransparent: true,
+            headerLeft: () => null,
+            headerTitle: (props) => (
+                <Text style={{
+                    color: 'white',
+                    fontSize: 16,
+                    fontWeight: '600'
+                }}>
+                    {getDayOfWeekText()}
+                </Text>
+            )
         }}
       />
     </HomeStackNavigator.Navigator>

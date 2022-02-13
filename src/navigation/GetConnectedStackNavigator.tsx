@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import GetConnectedScreen from '../screens/getconnected/GetConnectedScreen';
+import GetConnectedScreen from '../screens/getConnected/GetConnectedScreen';
 
 const GetConnectedStackNavigator = createStackNavigator();
 

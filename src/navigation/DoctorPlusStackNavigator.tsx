@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import DoctorPlusScreen from '../screens/doctorplus/DoctorPlusScreen';
+import DoctorPlusScreen from '../screens/doctorPlus/DoctorPlusScreen';
 
 const DoctorPlusStackNavigator = createStackNavigator();
 
