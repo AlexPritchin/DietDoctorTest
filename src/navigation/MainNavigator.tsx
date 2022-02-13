@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import IntroAuthScreen from '../screens/auth/IntroAuthScreen';
 import LoginScreen from '../screens/auth/LoginScreen';
+import { TabNavigator } from './MainTabNavigator';
 
 const MainStackNavigator = createStackNavigator();
 
@@ -23,6 +24,13 @@ export const MainNavigator = () => {
             headerTransparent: true,
             headerTintColor: 'white',
             headerBackTitleVisible: false
+        }}
+      />
+      <MainStackNavigator.Screen
+        name="Main tab"
+        component={TabNavigator}
+        options={{
+          headerShown: false
         }}
       />
     </MainStackNavigator.Navigator>

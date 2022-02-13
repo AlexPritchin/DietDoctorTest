@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -19,7 +20,11 @@ const LoginSchema = Yup.object().shape({
   password: Yup.string().min(6).required('Required'),
 });
 
-const LoginScreen = () => {
+interface Props {
+  navigation: StackNavigationProp<any>;
+}
+
+const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const isFormValid = useRef(false);
 
   const formTrySubmit = () => {
@@ -30,6 +35,7 @@ const LoginScreen = () => {
       );
       return;
     }
+    navigation.navigate('Main tab');
   };
 
   return (

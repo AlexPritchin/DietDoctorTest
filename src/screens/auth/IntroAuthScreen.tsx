@@ -44,7 +44,11 @@ const IntroAuthScreen: React.FC<Props> = ({ navigation }) => {
                   <Text style={styles.loginButtonText}>Log in</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Main tab');
+                }}
+              >
                 <View style={styles.freeVersionButtonView}>
                   <Text style={styles.freeVersionButtonText}>Free version</Text>
                 </View>
