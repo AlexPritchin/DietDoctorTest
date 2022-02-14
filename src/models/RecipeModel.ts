@@ -4,6 +4,7 @@ class Recipe {
     type: number;
     difficulty: number;
     ingredient: number;
+    [key: string]: string | number;
 
     constructor(title: string, imageURL: string, type: number,
         difficulty: number,

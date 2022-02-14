@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
+import { RouteProp } from '@react-navigation/native';
 
+import { HomeStackParamList } from '../../navigation/HomeStackNavigator';
 import { recipes } from '../../data/HomeScreensDummyData';
+import Recipe from '../../models/RecipeModel';
+import { getFilteredRecipes } from '../../utils/RecipesDataFunctions';
 import RecipesListItem from '../../components/recipes/RecipesListItem';
 
-const RecipesListScreen = () => {
+type RecipesListScreenRouteProp = RouteProp<HomeStackParamList, 'RecipesList'>;
+
+interface Props {
+  route: RecipesListScreenRouteProp;
+}
+
+const RecipesListScreen: React.FC<Props> = ({ route }) => {
+  const [recipesListToDisplay, setRecipesListToDisplay] = useState<Recipe[]>(
+    []
+  );
+
+  useEffect(() => {
+    let filteredRecipes = getFilteredRecipes(route.params.checkedFilters);
+    setRecipesListToDisplay(filteredRecipes);
+  }, []);
+
   return (
     <View style={styles.mainView}>
       <FlatList
         style={styles.mainFlatList}
-        data={recipes}
+        data={recipesListToDisplay}
         keyExtractor={(item, index) => index.toString()}
         renderItem={itemData => <RecipesListItem dataItem={itemData.item} />}
       />
@@ -24,7 +43,7 @@ const styles = StyleSheet.create({
   mainFlatList: {
     marginTop: 95,
     marginHorizontal: 15,
-    marginBottom: 3
+    marginBottom: 3,
   },
 });
 
