@@ -14,3 +14,22 @@ export const TimeOfDayGreetings = [
     'Good evening',
     'Good night'
 ];
+
+export const RecipeTypesFilter = [
+    'Breakfast',
+    'Lunch',
+    'Dinner',
+];
+
+export const RecipeDifficultyFilter = [
+    'Beginner',
+    'Easy',
+    'Medium',
+    'Hard',
+];
+
+export const RecipeIngredientFilter = [
+    'Egg',
+    'Fish',
+    'Pork',
+];

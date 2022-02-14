@@ -1,10 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const SearchRecipesScreen = () => {
+interface Props {
+  navigation: StackNavigationProp<any>;
+}
+
+const SearchRecipesScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.mainView}>
-      <Text style={styles.mainText}>SearchRecipes</Text>
+      <View>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('RecipesList');
+          }}
+        >
+          <Text>Show recipes</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

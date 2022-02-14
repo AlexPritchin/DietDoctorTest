@@ -46,7 +46,8 @@ export const HomeNavigator = () => {
         options={{
             headerBackTitleVisible: false,
             headerTransparent: true,
-            headerTitle: 'Recipes'
+            headerTitle: 'Recipes',
+            headerTintColor: 'black'
         }}
       />
     </HomeStackNavigator.Navigator>
